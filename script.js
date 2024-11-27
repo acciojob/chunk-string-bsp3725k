@@ -1,24 +1,20 @@
-function chunkString(str, size) {
-  // Handle edge cases where input is invalid
+function stringChop(str, size) {
+  // Handle invalid input cases
   if (!str || size <= 0) {
     return [];
   }
 
-  let result = [];
+  const result = [];
   for (let i = 0; i < str.length; i += size) {
-    // Extract substring chunks of `size` length
+    // Extract substrings of length `size`
     result.push(str.slice(i, i + size));
   }
-
+  
   return result;
 }
-// Example usag
-const str = prompt("Enter String:"); // Input string
-const size = parseInt(prompt("Enter Chunk Size:"), 10); // Chunk size as integer
 
-if (isNaN(size) || size <= 0) {
-  alert("Please enter a valid positive number for the chunk size!");
-} else {
-  const chunks = chunkString(str, size);
-  alert(JSON.stringify(chunks)); // Display result in JSON format
-}
+// Do not change the code below
+const str = prompt("Enter String.");
+const size = parseInt(prompt("Enter Chunk Size."), 10); // Ensure size is parsed as a number
+alert(stringChop(str, size));
+
